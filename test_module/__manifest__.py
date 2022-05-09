@@ -5,7 +5,7 @@
     'name': "Test Module",
     'summary': 'Test Module',
     'description': "Test Module",
-    'category': 'CRM',
+    'category': 'SALE',
     'version': '1.0',
     'depends': ['sale'],
     'data': [
