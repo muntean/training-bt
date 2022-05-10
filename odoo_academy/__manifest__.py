@@ -11,7 +11,7 @@
     """,
     'author': 'Bisstech SRL',
     'category': 'Training',
-    'version': '1.1',
+    'version': '1.2',
     'depends': ['base'],
     'data': [
         # 'views/sale_order_views.xml',
