@@ -11,10 +11,10 @@
     """,
     'author': 'Bisstech SRL',
     'category': 'Training',
-    'version': '1.0',
-    'depends': ['base', 'sale'],
+    'version': '1.1',
+    'depends': ['base'],
     'data': [
-        'views/sale_order_views.xml',
+        # 'views/sale_order_views.xml',
     ],
     'installable': True,
     'application': False,
