@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="academy.spaceship" id="tie_101">
+            <field name="name">TIE 101</field>
+            <field name="fuel_type">lox</field>
+            <field name="ship_type">fighter</field>
+            <field name="passengers">1</field>
+        </record>
+
+        <record model="academy.spaceship" id="des_200">
+            <field name="name">DESTROYER 200</field>
+            <field name="fuel_type">lhy</field>
+            <field name="ship_type">destroyer</field>
+            <field name="passengers">10</field>
+        </record>
+    </data>
+</odoo>
