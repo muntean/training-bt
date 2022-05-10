@@ -14,3 +14,4 @@ class Spaceship(models.Model):
                                                                 ('fighter', 'Fighter'),
                                                                 ('destroyer', 'Destroyer')])
     passengers = fields.Integer(string='Passengers No')
+    active = fields.Boolean(string='Active', default=True)
