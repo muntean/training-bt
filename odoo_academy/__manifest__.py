@@ -5,9 +5,6 @@
     'summary': """Academy app to manage Training""",
     'description': """
         Academy Module to manage Training:
-        - Courses
-        - Sessions
-        - Attendees
     """,
     'author': 'Bisstech SRL',
     'category': 'Training',
