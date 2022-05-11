@@ -19,3 +19,4 @@ class Book(models.Model):
                                                         ('mystery', 'Mystery')
                                                         ])
     description = fields.Text(string='Description')
+    is_rented = fields.Boolean(string='Is Rented', default=False)

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="group_library_admin" model="res.groups">
+        <field name="name">Library/Admin</field>
+    </record>
+
+    <record id="only_not_rented_rule" model="ir.rule">
+        <field name="name">Only in stock books can be rented</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="domain_force">[('is_rented','=',False)]</field>
+        <field name="model_id" ref="model_academy_book"/>
+    </record>
+</odoo>
