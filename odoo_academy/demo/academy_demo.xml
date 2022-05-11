@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <record model="academy.spaceship" id="tie_101">
-            <field name="name">TIE 101</field>
-            <field name="fuel_type">lox</field>
-            <field name="ship_type">fighter</field>
-            <field name="passengers">1</field>
+        <record model="academy.book" id="witcher1">
+            <field name="name">The Witcher</field>
+            <field name="author">Andrzej Sapkowski</field>
+            <field name="publisher">Nemira</field>
+            <field name="genre">fantasy</field>
+            <field name="year">1992</field>
+            <field name="description">Witcher</field>
         </record>
 
-        <record model="academy.spaceship" id="des_200">
-            <field name="name">DESTROYER 200</field>
-            <field name="fuel_type">lhy</field>
-            <field name="ship_type">destroyer</field>
-            <field name="passengers">10</field>
+        <record model="academy.book" id="dune">
+            <field name="name">Dune</field>
+            <field name="author">Frank Herbert</field>
+            <field name="publisher">Nemira</field>
+            <field name="genre">scifi</field>
+            <field name="year">1965</field>
+            <field name="description">Dune</field>
         </record>
     </data>
 </odoo>
