@@ -8,11 +8,12 @@
     """,
     'author': 'Bisstech SRL',
     'category': 'Training',
-    'version': '1.5',
+    'version': '1.6',
     'depends': ['base'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/academy_menuitems.xml',
         # 'views/book_views.xml',
     ],
     'demo': [
