@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="book_view_form" model="ir.ui.view">
+        <field name="name">book.view.form</field>
+        <field name="model">academy.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="author"/>
+                        <field name="publisher"/>
+                        <field name="year"/>
+                        <field name="genre"/>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+           </form>
+        </field>
+    </record>
 
-<!--    <record id="book_view_form" model="ir.ui.view">-->
-<!--        <field name="name">book.view.form</field>-->
-<!--        <field name="model">academy.book</field>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <form>-->
-<!--                <header>-->
-<!--                </header>-->
-<!--                <sheet>-->
-<!--                    <group>-->
-<!--                        <field name="name"/>-->
-<!--                        <field name="author"/>-->
-<!--                        <field name="publisher"/>-->
-<!--                        <field name="year"/>-->
-<!--                        <field name="genre"/>-->
-<!--                    </group>-->
-<!--                    <notebook>-->
-<!--                        <page string="Description">-->
-<!--                            <field name="description"/>-->
-<!--                        </page>-->
-<!--                    </notebook>-->
-<!--                </sheet>-->
-<!--           </form>-->
-<!--        </field>-->
-<!--    </record>-->
-
+    <record id="book_view_search" model="ir.ui.view">
+        <field name="name">book.view.search</field>
+        <field name="model">academy.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Title" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="author" string="Author" filter_domain="[('author', 'ilike', self)]"/>
+                <field name="publisher" string="Publisher" filter_domain="[('publisher', 'ilike', self)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Genre" name="genre" domain="[]" context="{'group_by': 'genre'}"/>
+                </group>
+           </search>
+        </field>
+    </record>
 </odoo>
