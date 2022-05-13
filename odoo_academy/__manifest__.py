@@ -8,7 +8,7 @@
     """,
     'author': 'Bisstech SRL',
     'category': 'Training',
-    'version': '1.6',
+    'version': '2.0',
     'depends': ['base'],
     'data': [
         'security/security.xml',
