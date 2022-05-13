@@ -9,6 +9,7 @@
                 </header>
                 <sheet>
                     <group>
+                        <field name="id" invisible="1"/>
                         <field name="name"/>
                         <field name="author"/>
                         <field name="publisher"/>
@@ -22,6 +23,21 @@
                     </notebook>
                 </sheet>
            </form>
+        </field>
+    </record>
+
+    <record id="book_view_tree" model="ir.ui.view">
+        <field name="name">book.view.tree</field>
+        <field name="model">academy.book</field>
+        <field name="arch" type="xml">
+            <tree string="Book List">
+                <field name="id" invisible="1"/>
+                <field name="name"/>
+                <field name="author"/>
+                <field name="publisher"/>
+                <field name="year"/>
+                <field name="genre"/>
+            </tree>
         </field>
     </record>
 
