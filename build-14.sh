@@ -2,9 +2,10 @@
 
 # Odoo 14
 
-modules=( test_module )
+modules=( odoo_academy )
 src_dir=.
-target_dir=/opt/odoo/custom/addons/
+#target_dir=/opt/odoo/custom/addons/
+target_dir=/opt/custom-v14/addons/
 odoo_user=odoo
 odoo_service=/etc/init.d/odoo-server
 
