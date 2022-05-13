@@ -8,13 +8,16 @@
                 <header>
                 </header>
                 <sheet>
+                    <h1><field name="name"/></h1>
                     <group>
-                        <field name="id" invisible="1"/>
-                        <field name="name"/>
-                        <field name="author"/>
-                        <field name="publisher"/>
-                        <field name="year"/>
-                        <field name="genre"/>
+                        <group>
+                            <field name="author"/>
+                            <field name="publisher"/>
+                        </group>
+                        <group>
+                            <field name="year"/>
+                            <field name="genre"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Description">
