@@ -12,11 +12,12 @@
                     <group>
                         <group>
                             <field name="author"/>
-                            <field name="publisher"/>
+                            <field name="genre"/>
+                            <field name="year"/>
                         </group>
                         <group>
-                            <field name="year"/>
-                            <field name="genre"/>
+                            <field name="publisher"/>
+                            <field name="isbm"/>
                         </group>
                     </group>
                     <notebook>
@@ -40,6 +41,7 @@
                 <field name="publisher"/>
                 <field name="year"/>
                 <field name="genre"/>
+                <field name="isbm" invisible="1"/>
             </tree>
         </field>
     </record>
