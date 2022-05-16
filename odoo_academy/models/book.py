@@ -22,6 +22,7 @@ class Book(models.Model):
     description = fields.Text(string='Description')
     isbm = fields.Char(string='ISBM', default=False)
     is_rented = fields.Boolean(string='Is Rented', default=False)
+    rented_id = fields.Many2one('academy.rental')
 
     @api.onchange('isbm')
     def _check_isbm(self):

@@ -18,6 +18,7 @@
                         <group>
                             <field name="publisher"/>
                             <field name="isbm"/>
+                            <field name="rented_id"/>
                         </group>
                     </group>
                     <notebook>
