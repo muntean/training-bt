@@ -62,4 +62,17 @@
            </search>
         </field>
     </record>
+
+        <record id="book_view_pivot" model="ir.ui.view">
+        <field name="name">book.view.pivot</field>
+        <field name="model">academy.book</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="name" type="row"/>
+                <field name="author" type="row"/>
+                <field name="genre" type="row"/>
+                <field name="publisher" type="row"/>
+            </pivot>
+        </field>
+    </record>
 </odoo>

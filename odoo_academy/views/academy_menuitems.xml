@@ -4,7 +4,7 @@
         <record id="book_list_action" model="ir.actions.act_window">
             <field name="name">Books</field>
             <field name="res_model">academy.book</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,pivot</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Add a book
@@ -15,7 +15,7 @@
         <record id="rental_list_action" model="ir.actions.act_window">
             <field name="name">Rental</field>
             <field name="res_model">academy.rental</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,map,calendar</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Add a rent
