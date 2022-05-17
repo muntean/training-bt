@@ -20,11 +20,11 @@ class Book(models.Model):
                                                         ('mystery', 'Mystery')
                                                         ])
     description = fields.Text(string='Description')
-    isbm = fields.Char(string='ISBM', default=False)
+    isbm = fields.Char(string='ISBM', required=True)
     is_rented = fields.Boolean(string='Is Rented', default=False)
-    rented_id = fields.Many2one('academy.rental')
+    rented_id = fields.Many2one(comodel_name='academy.rental', string='Rented')
 
     @api.onchange('isbm')
     def _check_isbm(self):
-        if len(self.isbm) > 13:
+        if bool(self.isbm) and len(self.isbm) > 13:
             raise ValidationError(_('ISBM must contain maximum 13 numbers.'))

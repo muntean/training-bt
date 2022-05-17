@@ -1,3 +1,4 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-library_admin,library_admin,model_academy_book,group_library_admin,1,1,1,1
+library_admin,library admin,model_academy_book,group_library_admin,1,1,1,1
+rental_admin,rental admin,model_academy_rental,group_library_admin,1,1,1,1
 library_customer,library_customer,model_academy_book,,1,0,0,0

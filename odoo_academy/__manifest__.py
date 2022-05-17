@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'views/academy_menuitems.xml',
         'views/book_views.xml',
+        'views/rental_views.xml',
     ],
     'demo': [
         'demo/academy_demo.xml',

@@ -18,13 +18,15 @@
                         <group>
                             <field name="publisher"/>
                             <field name="isbm"/>
-                            <field name="rented_id"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Description">
                             <field name="description"/>
                         </page>
+<!--                        <page string="Rented">-->
+<!--                            <field name="rented_id"/>-->
+<!--                        </page>-->
                     </notebook>
                 </sheet>
            </form>
@@ -36,7 +38,6 @@
         <field name="model">academy.book</field>
         <field name="arch" type="xml">
             <tree string="Book List">
-                <field name="id" invisible="1"/>
                 <field name="name"/>
                 <field name="author"/>
                 <field name="publisher"/>
