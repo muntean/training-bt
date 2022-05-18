@@ -12,6 +12,17 @@
             </field>
         </record>
 
+        <record id="book_copy_list_action" model="ir.actions.act_window">
+            <field name="name">Book Copies</field>
+            <field name="res_model">academy.book.copy</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a book copy
+                </p>
+            </field>
+        </record>
+
         <record id="rental_list_action" model="ir.actions.act_window">
             <field name="name">Rental</field>
             <field name="res_model">academy.rental</field>
@@ -26,6 +37,9 @@
         <menuitem name="Academy Library" id="menu_library" sequence="1"/>
         <menuitem name="Academy Library" id="sub_menu_library" parent="menu_library" sequence="10"/>
         <menuitem name="Books" id="menu_books" parent="sub_menu_library" sequence="10" action="book_list_action"/>
+        <menuitem name="Book Copies" id="menu_book_copies" parent="sub_menu_library" sequence="15" action="book_copy_list_action"/>
         <menuitem name="Rented" id="menu_rental" parent="sub_menu_library" sequence="20" action="rental_list_action"/>
+        <menuitem name="Reports" id="sub_menu_reports" parent="menu_library" sequence="20"/>
+        <menuitem name="Rented Reports" id="menu_wizard" parent="sub_menu_reports" sequence="10" action="action_library_book_wizard"/>
     </data>
 </odoo>

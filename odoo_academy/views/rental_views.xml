@@ -1,80 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="rental_view_form" model="ir.ui.view">
-        <field name="name">rental.view.form</field>
-        <field name="model">academy.rental</field>
-        <field name="arch" type="xml">
-            <form>
-                <header>
-                </header>
-                <sheet>
-                    <h1><field name="name"/></h1>
-                    <group>
+    <data>
+        <record id="rental_view_form" model="ir.ui.view">
+            <field name="name">rental.view.form</field>
+            <field name="model">academy.rental</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    </header>
+                    <sheet>
+                        <h1><field name="name"/></h1>
                         <group>
-                            <field name="partner_id"/>
-<!--                            <field name="book_id"/>-->
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="book_id"/>
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="duration"/>
+                            </group>
                         </group>
-                        <group>
-                            <field name="start_date"/>
-                            <field name="end_date"/>
-                            <field name="duration"/>
-                        </group>
-                    </group>
-                    <notebook>
-                        <page string="Rental">
-                            <field name="book_ids"/>
-                        </page>
-                    </notebook>
-                </sheet>
-           </form>
-        </field>
-    </record>
+                    </sheet>
+               </form>
+            </field>
+        </record>
 
-    <record id="rental_view_tree" model="ir.ui.view">
-        <field name="name">rental.view.tree</field>
-        <field name="model">academy.rental</field>
-        <field name="arch" type="xml">
-            <tree string="Rental List">
-                <field name="name"/>
-                <field name="partner_id"/>
-<!--                <field name="book_id"/>-->
-            </tree>
-        </field>
-    </record>
+        <record id="rental_view_tree" model="ir.ui.view">
+            <field name="name">rental.view.tree</field>
+            <field name="model">academy.rental</field>
+            <field name="arch" type="xml">
+                <tree string="Rental List">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="book_id"/>
+                </tree>
+            </field>
+        </record>
 
-    <record id="rental_view_search" model="ir.ui.view">
-        <field name="name">rental.view.search</field>
-        <field name="model">academy.rental</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="partner_id" string="Title" filter_domain="[('partner_id', 'ilike', self)]"/>
-           </search>
-        </field>
-    </record>
+        <record id="rental_view_search" model="ir.ui.view">
+            <field name="name">rental.view.search</field>
+            <field name="model">academy.rental</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="partner_id" string="Title" filter_domain="[('partner_id', 'ilike', self)]"/>
+               </search>
+            </field>
+        </record>
 
-    <record id="rental_view_calendar" model="ir.ui.view">
-        <field name="name">rental.view.calendar</field>
-        <field name="model">academy.rental</field>
-        <field name="arch" type="xml">
-            <calendar string="Rent Calendar"
-                      date_start="start_date"
-                      date_stop="end_date"
-                      color="partner_id"
-                      mode="month">
-                <field name="name"/>
-                <field name="partner_id"/>
-           </calendar>
-        </field>
-    </record>
+        <record id="rental_view_calendar" model="ir.ui.view">
+            <field name="name">rental.view.calendar</field>
+            <field name="model">academy.rental</field>
+            <field name="arch" type="xml">
+                <calendar string="Rent Calendar"
+                          date_start="start_date"
+                          date_stop="end_date"
+                          color="partner_id"
+                          mode="month">
+                    <field name="name"/>
+                    <field name="book_id"/>
+                    <field name="partner_id"/>
+               </calendar>
+            </field>
+        </record>
 
-    <record id="rental_view_map" model="ir.ui.view">
-        <field name="name">rental.view.map</field>
-        <field name="model">academy.rental</field>
-        <field name="arch" type="xml">
-            <map res_partner="partner_id" routing="true">
-                <field name="partner_id" string="Customer"/>
-                <field name="book_ids" string="Books"/>
-            </map>
-        </field>
-    </record>
+        <record id="rental_view_map" model="ir.ui.view">
+            <field name="name">rental.view.map</field>
+            <field name="model">academy.rental</field>
+            <field name="arch" type="xml">
+                <map res_partner="partner_id" routing="true" hide_address="true">
+                    <field name="partner_id" string="Customer"/>
+                    <field name="book_id" string="Book"/>
+                </map>
+            </field>
+        </record>
+    </data>
 </odoo>

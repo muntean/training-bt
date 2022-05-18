@@ -7,22 +7,20 @@ from odoo.exceptions import ValidationError, UserError
 class Book(models.Model):
     _name = "academy.book"
     _description = "Book"
+    _order = "name"
 
-    name = fields.Char(string='Name')
-    author = fields.Char(string='Author')
-    publisher = fields.Char(string='Publisher')
-    # year = fields.Datetime(string='Date')
-    year = fields.Char(string='Year')
-    genre = fields.Selection(string='Genre', selection=[('scifi', 'Science Fiction'),
-                                                        ('fantasy', 'Fantasy'),
-                                                        ('romance', 'Romance'),
-                                                        ('action', 'Action & Adventure'),
-                                                        ('mystery', 'Mystery')
-                                                        ])
-    description = fields.Text(string='Description')
-    isbm = fields.Char(string='ISBM', required=True)
-    is_rented = fields.Boolean(string='Is Rented', default=False)
-    rented_id = fields.Many2one(comodel_name='academy.rental', string='Rented')
+    name = fields.Char(string=_('Name'))
+    author = fields.Char(string=_('Author'))
+    publisher = fields.Char(string=_('Publisher'))
+    year = fields.Char(string=_('Year'))
+    genre = fields.Selection(string=_('Genre'), selection=[('scifi', _('Science Fiction')),
+                                                           ('fantasy', _('Fantasy')),
+                                                           ('romance', _('Romance')),
+                                                           ('action', _('Action & Adventure')),
+                                                           ('mystery', _('Mystery'))
+                                                           ])
+    description = fields.Text(string=_('Description'))
+    isbm = fields.Char(string=_('ISBM'), required=True)
 
     @api.onchange('isbm')
     def _check_isbm(self):

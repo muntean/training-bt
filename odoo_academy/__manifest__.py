@@ -8,7 +8,7 @@
     """,
     'author': 'Bisstech SRL',
     'category': 'Training',
-    'version': '4.0',
+    'version': '4.1',
     'depends': ['base', 'web_map'],
     'data': [
         'security/security.xml',
@@ -16,6 +16,7 @@
         'views/academy_menuitems.xml',
         'views/book_views.xml',
         'views/rental_views.xml',
+        'wizard/book_wizard_view.xml',
     ],
     'demo': [
         'demo/academy_demo.xml',

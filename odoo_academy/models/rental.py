@@ -8,13 +8,13 @@ class Rental(models.Model):
     _name = "academy.rental"
     _description = "Rental"
 
-    partner_id = fields.Many2one(comodel_name='res.partner', string='Customer')
-    # book_id = fields.Many2one(comodel_name='academy.book', string='Book')
-    book_ids = fields.Many2many(comodel_name='academy.book', inverse_name='rented_id', string='Books')
-    name = fields.Char(string='Name')
-    start_date = fields.Date(string='Start Date', default=fields.Date.today)
-    duration = fields.Integer(string='Rent Duration', default=1)
-    end_date = fields.Date(string='End Date', compute='_compute_end_date', inverse='_inverse_end_date', store=True)
+    partner_id = fields.Many2one(comodel_name='res.partner', string=_('Customer'))
+    book_id = fields.Many2one(comodel_name='academy.book', string=_('Book'))
+    # book_ids = fields.Many2many(comodel_name='academy.book.copy', string=_('Books'))
+    name = fields.Char(string=_('Name'), related='book_id.name')
+    start_date = fields.Date(string=_('Start Date'), default=fields.Date.today)
+    duration = fields.Integer(string=_('Rent Duration'), default=1)
+    end_date = fields.Date(string=_('End Date'), compute='_compute_end_date', inverse='_inverse_end_date', store=True)
 
     @api.depends('start_date', 'duration')
     def _compute_end_date(self):
