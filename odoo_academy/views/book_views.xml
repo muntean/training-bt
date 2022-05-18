@@ -18,16 +18,13 @@
                             </group>
                             <group>
                                 <field name="publisher"/>
-                                <field name="isbm"/>
+                                <field name="isbm" required="1"/>
                             </group>
                         </group>
                         <notebook>
                             <page string="Description">
                                 <field name="description"/>
                             </page>
-    <!--                        <page string="Rented">-->
-    <!--                            <field name="rented_id"/>-->
-    <!--                        </page>-->
                         </notebook>
                     </sheet>
                </form>

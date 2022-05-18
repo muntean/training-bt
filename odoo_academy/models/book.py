@@ -20,7 +20,7 @@ class Book(models.Model):
                                                            ('mystery', _('Mystery'))
                                                            ])
     description = fields.Text(string=_('Description'))
-    isbm = fields.Char(string=_('ISBM'), required=True)
+    isbm = fields.Char(string=_('ISBM'))
 
     @api.onchange('isbm')
     def _check_isbm(self):
