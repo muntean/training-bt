@@ -20,13 +20,5 @@
                 </form>
             </field>
         </record>
-
-        <record id="action_library_book_wizard" model="ir.actions.act_window">
-            <field name="name">Library Wizard</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">library.book.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
-        </record>
     </data>
 </odoo>
