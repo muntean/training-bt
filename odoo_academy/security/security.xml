@@ -10,7 +10,7 @@
         <field name="perm_write" eval="0"/>
         <field name="perm_create" eval="0"/>
         <field name="perm_unlink" eval="0"/>
-        <field name="domain_force">[('is_rented','=',False)]</field>
-        <field name="model_id" ref="model_academy_book"/>
+<!--        <field name="domain_force">[('is_rented','=',False)]</field>-->
+        <field name="model_id" ref="model_academy_book_copy"/>
     </record>
 </odoo>

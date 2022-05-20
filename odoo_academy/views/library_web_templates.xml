@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="library_website_index">
+            <t t-call="website.layout">
+                <t t-set="title">Library</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1>Library</h1>
+                        <a t-attf-href="/library/books" class="btn btn-primary btn_cta">Go to books</a>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="library_website">
+            <t t-call="website.layout">
+                <t t-set="title">Library</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1>Books</h1>
+                        <t t-foreach="books" t-as="book">
+                            <h3>
+                                <t t-esc="book.name"/>
+                            </h3>
+                            <p>Author:
+                                <span t-field="book.author"/>
+                            </p>
+                            <p>Genre:
+                                <span t-field="book.genre"/>
+                            </p>
+                            <p>Year:
+                                <span t-field="book.year"/>
+                            </p>
+                            <p>Publisher:
+                                <span t-field="book.publisher"/>
+                            </p>
+                            <p>Description:
+                                <span t-field="book.description"/>
+                            </p>
+                        </t>
+                        <a t-attf-href="/library" class="btn btn-primary btn_cta">Go back</a>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
