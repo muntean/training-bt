@@ -27,6 +27,7 @@
             <field name="arch" type="xml">
                 <tree string="Book Copy List">
                     <field name="book_id"/>
+                    <field name="is_rented"/>
                     <field name="ref"/>
                 </tree>
             </field>
