@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="book_copy_view_form" model="ir.ui.view">
+            <field name="name">book.copy.view.form</field>
+            <field name="model">academy.book.copy</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="book_id"/>
+                                <field name="is_rented"/>
+                            </group>
+                            <group>
+                                <field name="ref"/>
+                            </group>
+                        </group>
+                    </sheet>
+               </form>
+            </field>
+        </record>
+
+        <record id="book_copy_view_tree" model="ir.ui.view">
+            <field name="name">book.copy.view.tree</field>
+            <field name="model">academy.book.copy</field>
+            <field name="arch" type="xml">
+                <tree string="Book Copy List">
+                    <field name="book_id"/>
+                    <field name="is_rented"/>
+                    <field name="ref"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
