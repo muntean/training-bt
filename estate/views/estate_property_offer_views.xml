@@ -7,12 +7,12 @@
             <form>
                 <group>
                     <group>
-                        <field name="price" readonly="status != False"/>
-                        <field name="partner_id" widget="many2one" readonly="status != False"/>
-                        <field name="validity" readonly="status != False"/>
+                        <field name="price" readonly="state != False"/>
+                        <field name="partner_id" widget="many2one" readonly="state != False"/>
+                        <field name="validity" readonly="state != False"/>
                     </group>
                     <group>
-                        <field name="status" readonly="1"/>
+                        <field name="state" readonly="1"/>
                         <field name="property_id" widget="many2one" readonly="1"/>
                         <field name="date_deadline" readonly="1"/>
                     </group>
@@ -25,14 +25,14 @@
         <field name="name">estate.property.offer.tree</field>
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
-            <tree decoration-danger="status in ['refused']" decoration-success="status in ['accepted']">
+            <tree decoration-danger="state in ['refused']" decoration-success="state in ['accepted']">
                 <field name="price"/>
                 <field name="partner_id" widget="many2one"/>
                 <field name="validity"/>
                 <field name="date_deadline"/>
-                <button name="action_accept" type="object" icon="fa-check" invisible="bool(status)"/>
-                <button name="action_refuse" type="object" icon="fa-times" invisible="bool(status)"/>
-                <field name="status" column_invisible="1" />
+                <button name="action_accept" type="object" icon="fa-check" invisible="bool(state)"/>
+                <button name="action_refuse" type="object" icon="fa-times" invisible="bool(state)"/>
+                <field name="state" column_invisible="1"/>
             </tree>
         </field>
     </record>

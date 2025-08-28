@@ -11,7 +11,7 @@ class EstatePropertyOffer(models.Model):
     _order = 'price desc'
 
     price = fields.Float(string='Price')
-    status = fields.Selection(states, string='Status', copy=False)
+    state = fields.Selection(states, string='Status', copy=False)
     partner_id = fields.Many2one('res.partner', string='Partner',index=True, required=True)
     property_id = fields.Many2one('estate.property', string='Properties', index=True, required=True)
     validity = fields.Integer(string='Validity (days)', default=7)
@@ -41,20 +41,20 @@ class EstatePropertyOffer(models.Model):
     def action_accept(self):
         for rec in self:
             if rec.property_id.state == 'received':
-                rec.status = 'accepted'
+                rec.state = 'accepted'
                 rec.property_id.selling_price = rec.price
                 rec.property_id.buyer_id = rec.partner_id
                 rec.property_id.state = 'accepted'
                 for offer in rec.property_id.offer_ids:
                     if not offer.id == rec.id:
-                        offer.status = 'refused'
+                        offer.state = 'refused'
             else:
                 raise UserError(_('Property not in Offer Received state.'))
 
     def action_refuse(self):
         for rec in self:
             if rec.property_id.state == 'received':
-                rec.status = 'refused'
+                rec.state = 'refused'
             else:
                 raise UserError(_('Property not in Offer Received state.'))
 
