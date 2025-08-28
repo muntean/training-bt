@@ -1,5 +1,5 @@
 #!/bin/bash
-modules=( estate )
+modules=( estate estate_account )
 # Odoo 17 Enterprise - EVOLUTION
 #other_modules=()
 # load the content of the file other_modules.sh

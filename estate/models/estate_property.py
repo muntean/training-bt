@@ -70,12 +70,14 @@ class EstateProperty(models.Model):
             if rec.state == 'cancel':
                 raise UserError(_('Properties on "Cancel" state can\'t be set as sold.'))
             rec.state = 'sold'
+        return True
 
     def action_cancel(self):
         for rec in self:
             if rec.state == 'sold':
                 raise UserError(_('Properties on "Sold" state can\'t be set as canceled.'))
             rec.state = 'cancel'
+        return True
 
     @api.constrains('selling_price', 'expected_price')
     def check_selling_price(self):
