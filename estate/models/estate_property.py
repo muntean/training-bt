@@ -28,8 +28,8 @@ class EstateProperty(models.Model):
     state = fields.Selection(states, string='Status', copy=False, required=True,default='new')
     active = fields.Boolean(string='Active', default=True, tracking=True)
     user_id = fields.Many2one('res.users', string='Salesman', index=True, tracking=True,default=lambda self: self.env.user)
-    buyer_id = fields.Many2one('res.partner', string='Buyer', index=True, tracking=True, copy=False)
-    type_id = fields.Many2one('estate.property.type', string='Property Type', index=True)
+    buyer_id = fields.Many2one('res.partner', string='Buyer', index=True, tracking=True, copy=False) #sugestion partner_id
+    type_id = fields.Many2one('estate.property.type', string='Property Type', index=True) #sugestion property_type_id
     tag_ids = fields.Many2many('estate.property.tag', string='Tags')
     offer_ids = fields.One2many(comodel_name='estate.property.offer', inverse_name='property_id', string='Offers')
     total_area = fields.Integer(string='Total Area', compute='_compute_total_area')
@@ -42,6 +42,9 @@ class EstateProperty(models.Model):
 
     @api.depends('garden_area', 'living_area')
     def _compute_total_area(self):
+        """
+        Compute total_area field
+        """
         for rec in self:
             if not bool(rec.living_area) and not bool(rec.garden_area):
                 rec.total_area = 0
@@ -50,6 +53,9 @@ class EstateProperty(models.Model):
 
     @api.depends('offer_ids.price')
     def _compute_best_price(self):
+        """
+        Compute best_price field
+        """
         for rec in self:
             if bool(rec.offer_ids):
                 rec.best_price = max(rec.offer_ids.mapped('price'))
@@ -58,6 +64,9 @@ class EstateProperty(models.Model):
 
     @api.onchange('garden')
     def onchange_garden(self):
+        """
+        Onchange garden boolean field
+        """
         if bool(self.garden):
             self.garden_area = 10
             self.garden_orientation = 'north'
@@ -66,6 +75,10 @@ class EstateProperty(models.Model):
             self.garden_orientation = False
 
     def action_sold(self):
+        """
+        Action for sold property button
+        :return: True
+        """
         for rec in self:
             if rec.state == 'cancel':
                 raise UserError(_('Properties on "Cancel" state can\'t be set as sold.'))
@@ -73,6 +86,10 @@ class EstateProperty(models.Model):
         return True
 
     def action_cancel(self):
+        """
+        Action for cancel property button
+        :return: True
+        """
         for rec in self:
             if rec.state == 'sold':
                 raise UserError(_('Properties on "Sold" state can\'t be set as canceled.'))
@@ -81,11 +98,17 @@ class EstateProperty(models.Model):
 
     @api.constrains('selling_price', 'expected_price')
     def check_selling_price(self):
+        """
+        Check selling_price to be 90% from expected price but not when expected_price in changed
+        """
         for rec in self:
             if not float_is_zero(rec.selling_price, precision_digits=6) and rec.selling_price < rec.expected_price * 0.9:
                 raise ValidationError(_("Selling price must be 90% or more from expected price."))
 
     @api.ondelete(at_uninstall=False)
     def _unlink_active_property(self):
+        """
+        Block delete property record on states new and cancel
+        """
         if self.state not in ['new', 'cancel']:
             raise UserError("Can't delete an property in this state!")

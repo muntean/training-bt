@@ -7,6 +7,10 @@ class EstateProperty(models.Model):
     _inherit = 'estate.property'
 
     def action_sold(self):
+        """
+        Override action for sold property button to create an invoice to partner
+        :return: True
+        """
         invoice_vals_list = []
         invoice_line_vals = []
         for rec in self:
