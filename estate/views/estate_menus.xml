@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="estate_menu_root"
+        name="Real Estate"
+        sequence="10"/>
+    <menuitem
+        id="advertisements_menu"
+        name="Advertisements"
+        parent="estate_menu_root"
+        sequence="10"/>
+    <menuitem
+        id="estate_menu_action"
+        action="estate.estate_model_action"
+        parent="advertisements_menu"/>
+
+    <menuitem
+        id="settings_menu"
+        name="Settings"
+        parent="estate_menu_root"
+        sequence="100"/>
+    <menuitem
+        id="property_type_menu_action"
+        action="estate.estate_type_model_action"
+        parent="settings_menu"/>
+    <menuitem
+        id="property_tag_menu_action"
+        action="estate.estate_tags_model_action"
+        parent="settings_menu"/>
+</odoo>
