@@ -42,7 +42,7 @@ class ExchangeGateway:
         """Return exchange rates for a specific date"""
         return self._get("historical", params={"date": date})
 
-    def convert(self, from_currency, to_currency, amount):
+    def convert(self, from_currency, to_currency, amount, date=None):
         """Convert a value of a currency to other currency"""
         return self._get("convert", params={
             "from": from_currency,
