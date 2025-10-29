@@ -1,23 +1,24 @@
 import requests
 
 class ExchangeGateway:
+    VERSION = ""
     BASE_URL = "https://api.currencylayer.com"
     ACCESS_KEY = "31d68f0e34fb2f94ce162e2ba86c5c06"
 
-    def __init__(self, test_mode=False):
-        self.test_mode = test_mode
+    def __init__(self, environment=None):
+        self.env = environment
 
     def _get_base_url(self):
         """Return base url"""
-        if self.test_mode:
-            return "https://api.exchangerate.host"
-        return self.BASE_URL
+        if not self.env:
+            return self.BASE_URL
+        return self.env['base_url']
 
     def _get_access_key(self):
         """Return access key"""
-        if self.test_mode:
-            return "b529a01fb9adc36350583415088ef38a"
-        return self.ACCESS_KEY
+        if not self.env:
+            return self.ACCESS_KEY
+        return self.env['access_key']
 
     def _get(self, endpoint, params=None):
         """
@@ -26,13 +27,16 @@ class ExchangeGateway:
         """
         if params is None:
             params = {}
-
         params["access_key"] = self._get_access_key()
 
         url = f"{self._get_base_url()}/{endpoint}"
         response = requests.get(url, params=params)
         response.raise_for_status()
         return response.json()
+
+    def symbols(self):
+        """Endpoint returning all available currencies"""
+        return self._get("symbols")
 
     def live(self):
         """Return most recent exchange rates"""
@@ -42,13 +46,17 @@ class ExchangeGateway:
         """Return exchange rates for a specific date"""
         return self._get("historical", params={"date": date})
 
-    def convert(self, from_currency, to_currency, amount, date=None):
+    def convert(self, from_currency: str, to_currency: str, amount: float, date=None):
         """Convert a value of a currency to other currency"""
-        return self._get("convert", params={
+        params = {
             "from": from_currency,
             "to": to_currency,
             "amount": amount
-        })
+        }
+        if date:
+            params['date'] = date
+
+        return self._get("convert", params=params)
 
     def timeframe(self, start_date, end_date):
         """Return exchange rates between start and end date"""
@@ -65,7 +73,7 @@ class ExchangeGateway:
 
 
 if __name__ == "__main__":
-    gateway = ExchangeGateway(test_mode=True)
+    gateway = ExchangeGateway()
 
     print("\n🔹 Convert 10 EUR to GBP:")
     print(gateway.convert("EUR", "GBP", 10))
